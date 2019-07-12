@@ -1,0 +1,14 @@
+h1.mb-5 タスクの詳細
+
+.nav.justify-content-expand
+  = link_to '一覧' , tasks_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Task.human_attribute_name(:name)
+      td= @task.name
+    tr
+      th= Task.human_attribute_name(:description)
+      td= @task.description
+= link_to '編集', edit_task_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @task, method: :delete, data: {cofirm: "タスク「#{@task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
